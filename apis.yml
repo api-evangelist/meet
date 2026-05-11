@@ -1,0 +1,61 @@
+aid: meet
+name: Google Meet
+description: >-
+  Google Meet is Google Workspace's secure video conferencing service for
+  one-on-one calls, team meetings, large webinars, and live streamed events
+  with features like noise cancellation, captions, recordings, and transcripts.
+  The Google Meet REST API enables developers to programmatically create and
+  manage meeting spaces, access conference records, list participants, and
+  fetch artifacts such as recordings and transcripts directly from their apps.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Video Conferencing
+  - Meetings
+  - Communication
+  - Collaboration
+  - Google Workspace
+  - Recordings
+  - Transcripts
+url: https://raw.githubusercontent.com/api-evangelist/meet/refs/heads/main/apis.yml
+created: '2026-05-11'
+modified: '2026-05-11'
+specificationVersion: '0.19'
+apis:
+  - aid: meet:rest-api-v2
+    name: Google Meet REST API v2
+    description: >-
+      REST API for creating and managing Google Meet meeting spaces, retrieving
+      conference records and participants, and accessing recordings and
+      transcripts. Authentication uses OAuth 2.0 with Google Workspace scopes.
+    humanURL: https://developers.google.com/workspace/meet/api/guides/overview
+    baseURL: https://meet.googleapis.com/v2
+    tags:
+      - REST
+      - OAuth 2.0
+      - Spaces
+      - Conference Records
+      - Participants
+      - Recordings
+      - Transcripts
+    properties:
+      - type: Documentation
+        url: https://developers.google.com/workspace/meet/api/guides/overview
+      - type: API Reference
+        url: https://developers.google.com/workspace/meet/api/reference/rest/v2
+      - type: Authentication
+        url: https://developers.google.com/workspace/meet/api/guides/authenticate-authorize
+      - type: OpenAPI
+        url: https://meet.googleapis.com/$discovery/rest?version=v2
+common:
+  - type: Website
+    url: https://meet.google.com/
+  - type: Documentation
+    url: https://developers.google.com/workspace/meet
+  - type: Pricing
+    url: https://workspace.google.com/pricing.html
+  - type: Sign Up
+    url: https://accounts.google.com/signup
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
