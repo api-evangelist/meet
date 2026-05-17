@@ -41,7 +41,7 @@ apis:
     properties:
       - type: Documentation
         url: https://developers.google.com/workspace/meet/api/guides/overview
-      - type: API Reference
+      - type: APIReference
         url: https://developers.google.com/workspace/meet/api/reference/rest/v2
       - type: Authentication
         url: https://developers.google.com/workspace/meet/api/guides/authenticate-authorize
@@ -54,7 +54,7 @@ common:
     url: https://developers.google.com/workspace/meet
   - type: Pricing
     url: https://workspace.google.com/pricing.html
-  - type: Sign Up
+  - type: SignUp
     url: https://accounts.google.com/signup
 maintainers:
   - FN: Kin Lane
