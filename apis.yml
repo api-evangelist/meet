@@ -54,7 +54,7 @@ common:
     url: https://developers.google.com/workspace/meet
   - type: Pricing
     url: https://workspace.google.com/pricing.html
-  - type: SignUp
+  - type: Signup
     url: https://accounts.google.com/signup
 maintainers:
   - FN: Kin Lane
