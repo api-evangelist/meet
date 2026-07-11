@@ -48,6 +48,12 @@ apis:
       - type: OpenAPI
         url: https://meet.googleapis.com/$discovery/rest?version=v2
 common:
+  - type: VulnerabilityDisclosure
+    url: security/meet-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/meet-domain-security.yml
+  - type: Authentication
+    url: authentication/meet-authentication.yml
   - type: OAuthScopes
     url: scopes/meet-scopes.yml
   - type: Website
