@@ -48,6 +48,8 @@ apis:
       - type: OpenAPI
         url: https://meet.googleapis.com/$discovery/rest?version=v2
 common:
+  - type: OAuthScopes
+    url: scopes/meet-scopes.yml
   - type: Website
     url: https://meet.google.com/
   - type: Documentation

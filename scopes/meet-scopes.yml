@@ -1,0 +1,29 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/meet-openapi.yml
+schemes:
+- name: oauth2
+  source: openapi/meet-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+    tokenUrl: https://oauth2.googleapis.com/token
+scopes:
+- scope: https://www.googleapis.com/auth/meetings.space.created
+  description: Create and manage meeting spaces created by the app
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/meet-openapi.yml
+- scope: https://www.googleapis.com/auth/meetings.space.readonly
+  description: Read meeting spaces
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/meet-openapi.yml
+- scope: https://www.googleapis.com/auth/meetings.space.settings
+  description: Manage meeting space settings
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/meet-openapi.yml
