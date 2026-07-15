@@ -48,6 +48,8 @@ apis:
       - type: OpenAPI
         url: https://meet.googleapis.com/$discovery/rest?version=v2
 common:
+  - type: AgenticAccess
+    url: agentic-access/meet-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/meet-vulnerability-disclosure.yml
   - type: DomainSecurity
