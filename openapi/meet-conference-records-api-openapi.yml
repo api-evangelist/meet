@@ -1,0 +1,111 @@
+openapi: 3.1.0
+info:
+  title: Google Meet REST Conference Records API
+  version: v2
+  description: 'Google Meet REST API v2 for creating and managing meeting spaces,
+
+    retrieving conference records and participants, and accessing recordings
+
+    and transcripts produced by Google Meet. Authentication uses OAuth 2.0
+
+    with Google Workspace scopes such as
+
+    https://www.googleapis.com/auth/meetings.space.created and
+
+    https://www.googleapis.com/auth/meetings.space.readonly.
+
+    '
+  contact:
+    name: Google Meet API
+    url: https://developers.google.com/workspace/meet/api/guides/overview
+servers:
+- url: https://meet.googleapis.com
+  description: Google Meet API service endpoint
+security:
+- oauth2: []
+- bearerAuth: []
+tags:
+- name: Conference Records
+paths:
+  /v2/conferenceRecords:
+    get:
+      tags:
+      - Conference Records
+      summary: List conference records
+      parameters:
+      - in: query
+        name: pageSize
+        schema:
+          type: integer
+      - in: query
+        name: pageToken
+        schema:
+          type: string
+      - in: query
+        name: filter
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Conference records page
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  conferenceRecords:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ConferenceRecord'
+                  nextPageToken:
+                    type: string
+  /v2/conferenceRecords/{conferenceRecord}:
+    get:
+      tags:
+      - Conference Records
+      summary: Get a conference record
+      parameters:
+      - in: path
+        name: conferenceRecord
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Conference record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConferenceRecord'
+components:
+  schemas:
+    ConferenceRecord:
+      type: object
+      properties:
+        name:
+          type: string
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+        expireTime:
+          type: string
+          format: date-time
+        space:
+          type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/meetings.space.created: Create and manage meeting spaces created by the app
+            https://www.googleapis.com/auth/meetings.space.readonly: Read meeting spaces
+            https://www.googleapis.com/auth/meetings.space.settings: Manage meeting space settings
+    bearerAuth:
+      type: http
+      scheme: bearer

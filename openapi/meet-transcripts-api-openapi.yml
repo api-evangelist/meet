@@ -1,0 +1,188 @@
+openapi: 3.1.0
+info:
+  title: Google Meet REST Conference Records Transcripts API
+  version: v2
+  description: 'Google Meet REST API v2 for creating and managing meeting spaces,
+
+    retrieving conference records and participants, and accessing recordings
+
+    and transcripts produced by Google Meet. Authentication uses OAuth 2.0
+
+    with Google Workspace scopes such as
+
+    https://www.googleapis.com/auth/meetings.space.created and
+
+    https://www.googleapis.com/auth/meetings.space.readonly.
+
+    '
+  contact:
+    name: Google Meet API
+    url: https://developers.google.com/workspace/meet/api/guides/overview
+servers:
+- url: https://meet.googleapis.com
+  description: Google Meet API service endpoint
+security:
+- oauth2: []
+- bearerAuth: []
+tags:
+- name: Transcripts
+paths:
+  /v2/conferenceRecords/{conferenceRecord}/transcripts:
+    get:
+      tags:
+      - Transcripts
+      summary: List transcripts for a conference
+      parameters:
+      - in: path
+        name: conferenceRecord
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Transcripts page
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  transcripts:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Transcript'
+                  nextPageToken:
+                    type: string
+  /v2/conferenceRecords/{conferenceRecord}/transcripts/{transcript}:
+    get:
+      tags:
+      - Transcripts
+      summary: Get a transcript
+      parameters:
+      - in: path
+        name: conferenceRecord
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: transcript
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Transcript
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transcript'
+  /v2/conferenceRecords/{conferenceRecord}/transcripts/{transcript}/entries:
+    get:
+      tags:
+      - Transcripts
+      summary: List transcript entries
+      parameters:
+      - in: path
+        name: conferenceRecord
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: transcript
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Transcript entries page
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  transcriptEntries:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/TranscriptEntry'
+                  nextPageToken:
+                    type: string
+  /v2/conferenceRecords/{conferenceRecord}/transcripts/{transcript}/entries/{entry}:
+    get:
+      tags:
+      - Transcripts
+      summary: Get a transcript entry
+      parameters:
+      - in: path
+        name: conferenceRecord
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: transcript
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: entry
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Transcript entry
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TranscriptEntry'
+components:
+  schemas:
+    Transcript:
+      type: object
+      properties:
+        name:
+          type: string
+        docsDestination:
+          type: object
+          properties:
+            document:
+              type: string
+            exportUri:
+              type: string
+        state:
+          type: string
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+    TranscriptEntry:
+      type: object
+      properties:
+        name:
+          type: string
+        participant:
+          type: string
+        text:
+          type: string
+        languageCode:
+          type: string
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/meetings.space.created: Create and manage meeting spaces created by the app
+            https://www.googleapis.com/auth/meetings.space.readonly: Read meeting spaces
+            https://www.googleapis.com/auth/meetings.space.settings: Manage meeting space settings
+    bearerAuth:
+      type: http
+      scheme: bearer

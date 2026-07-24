@@ -1,0 +1,148 @@
+openapi: 3.1.0
+info:
+  title: Google Meet REST Conference Records Spaces API
+  version: v2
+  description: 'Google Meet REST API v2 for creating and managing meeting spaces,
+
+    retrieving conference records and participants, and accessing recordings
+
+    and transcripts produced by Google Meet. Authentication uses OAuth 2.0
+
+    with Google Workspace scopes such as
+
+    https://www.googleapis.com/auth/meetings.space.created and
+
+    https://www.googleapis.com/auth/meetings.space.readonly.
+
+    '
+  contact:
+    name: Google Meet API
+    url: https://developers.google.com/workspace/meet/api/guides/overview
+servers:
+- url: https://meet.googleapis.com
+  description: Google Meet API service endpoint
+security:
+- oauth2: []
+- bearerAuth: []
+tags:
+- name: Spaces
+paths:
+  /v2/spaces:
+    post:
+      tags:
+      - Spaces
+      summary: Create a meeting space
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Space'
+      responses:
+        '200':
+          description: Space created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Space'
+  /v2/spaces/{space}:
+    parameters:
+    - in: path
+      name: space
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Spaces
+      summary: Get a meeting space
+      responses:
+        '200':
+          description: Space
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Space'
+    patch:
+      tags:
+      - Spaces
+      summary: Update a meeting space
+      parameters:
+      - in: query
+        name: updateMask
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Space'
+      responses:
+        '200':
+          description: Updated space
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Space'
+  /v2/spaces/{space}:endActiveConference:
+    post:
+      tags:
+      - Spaces
+      summary: End the active conference in a space
+      parameters:
+      - in: path
+        name: space
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Active conference ended
+components:
+  schemas:
+    Space:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Resource name in the form spaces/{space}.
+        meetingUri:
+          type: string
+        meetingCode:
+          type: string
+        config:
+          type: object
+          properties:
+            accessType:
+              type: string
+              enum:
+              - ACCESS_TYPE_UNSPECIFIED
+              - OPEN
+              - TRUSTED
+              - RESTRICTED
+            entryPointAccess:
+              type: string
+              enum:
+              - ENTRY_POINT_ACCESS_UNSPECIFIED
+              - ALL
+              - CREATOR_APP_ONLY
+        activeConference:
+          type: object
+          properties:
+            conferenceRecord:
+              type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/meetings.space.created: Create and manage meeting spaces created by the app
+            https://www.googleapis.com/auth/meetings.space.readonly: Read meeting spaces
+            https://www.googleapis.com/auth/meetings.space.settings: Manage meeting space settings
+    bearerAuth:
+      type: http
+      scheme: bearer
