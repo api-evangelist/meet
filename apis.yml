@@ -8,7 +8,19 @@ description: >-
   manage meeting spaces, access conference records, list participants, and
   fetch artifacts such as recordings and transcripts directly from their apps.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/meet.png
 tags:
   - Video Conferencing
   - Meetings
@@ -22,31 +34,86 @@ created: '2026-05-11'
 modified: '2026-05-11'
 specificationVersion: '0.19'
 apis:
-  - aid: meet:rest-api-v2
-    name: Google Meet REST API v2
-    description: >-
-      REST API for creating and managing Google Meet meeting spaces, retrieving
-      conference records and participants, and accessing recordings and
-      transcripts. Authentication uses OAuth 2.0 with Google Workspace scopes.
-    humanURL: https://developers.google.com/workspace/meet/api/guides/overview
-    baseURL: https://meet.googleapis.com/v2
-    tags:
-      - REST
-      - OAuth 2.0
-      - Spaces
-      - Conference Records
-      - Participants
-      - Recordings
-      - Transcripts
-    properties:
-      - type: Documentation
-        url: https://developers.google.com/workspace/meet/api/guides/overview
-      - type: APIReference
-        url: https://developers.google.com/workspace/meet/api/reference/rest/v2
-      - type: Authentication
-        url: https://developers.google.com/workspace/meet/api/guides/authenticate-authorize
-      - type: OpenAPI
-        url: https://meet.googleapis.com/$discovery/rest?version=v2
+- aid: meet:meet-conference-records-api
+  name: Google Meet Conference Records API
+  description: The Conference Records API from Google Meet — 2 operation(s) for conference records.
+  humanURL: https://developers.google.com/workspace/meet/api/guides/overview
+  baseURL: https://meet.googleapis.com/v2
+  tags:
+  - Conference Records
+  properties:
+  - type: OpenAPI
+    url: openapi/meet-conference-records-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/workspace/meet/api/guides/overview
+  - type: APIReference
+    url: https://developers.google.com/workspace/meet/api/reference/rest/v2
+  - type: Authentication
+    url: https://developers.google.com/workspace/meet/api/guides/authenticate-authorize
+- aid: meet:meet-participants-api
+  name: Google Meet Participants API
+  description: The Participants API from Google Meet — 4 operation(s) for participants.
+  humanURL: https://developers.google.com/workspace/meet/api/guides/overview
+  baseURL: https://meet.googleapis.com/v2
+  tags:
+  - Participants
+  properties:
+  - type: OpenAPI
+    url: openapi/meet-participants-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/workspace/meet/api/guides/overview
+  - type: APIReference
+    url: https://developers.google.com/workspace/meet/api/reference/rest/v2
+  - type: Authentication
+    url: https://developers.google.com/workspace/meet/api/guides/authenticate-authorize
+- aid: meet:meet-recordings-api
+  name: Google Meet Recordings API
+  description: The Recordings API from Google Meet — 2 operation(s) for recordings.
+  humanURL: https://developers.google.com/workspace/meet/api/guides/overview
+  baseURL: https://meet.googleapis.com/v2
+  tags:
+  - Recordings
+  properties:
+  - type: OpenAPI
+    url: openapi/meet-recordings-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/workspace/meet/api/guides/overview
+  - type: APIReference
+    url: https://developers.google.com/workspace/meet/api/reference/rest/v2
+  - type: Authentication
+    url: https://developers.google.com/workspace/meet/api/guides/authenticate-authorize
+- aid: meet:meet-spaces-api
+  name: Google Meet Spaces API
+  description: The Spaces API from Google Meet — 3 operation(s) for spaces.
+  humanURL: https://developers.google.com/workspace/meet/api/guides/overview
+  baseURL: https://meet.googleapis.com/v2
+  tags:
+  - Spaces
+  properties:
+  - type: OpenAPI
+    url: openapi/meet-spaces-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/workspace/meet/api/guides/overview
+  - type: APIReference
+    url: https://developers.google.com/workspace/meet/api/reference/rest/v2
+  - type: Authentication
+    url: https://developers.google.com/workspace/meet/api/guides/authenticate-authorize
+- aid: meet:meet-transcripts-api
+  name: Google Meet Transcripts API
+  description: The Transcripts API from Google Meet — 4 operation(s) for transcripts.
+  humanURL: https://developers.google.com/workspace/meet/api/guides/overview
+  baseURL: https://meet.googleapis.com/v2
+  tags:
+  - Transcripts
+  properties:
+  - type: OpenAPI
+    url: openapi/meet-transcripts-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/workspace/meet/api/guides/overview
+  - type: APIReference
+    url: https://developers.google.com/workspace/meet/api/reference/rest/v2
+  - type: Authentication
+    url: https://developers.google.com/workspace/meet/api/guides/authenticate-authorize
 common:
   - type: AgenticAccess
     url: agentic-access/meet-agentic-access.yml
