@@ -1,0 +1,22 @@
+{
+  "provider": "meet",
+  "sources": [
+    "meet-conference-records-api-openapi.yml",
+    "meet-participants-api-openapi.yml",
+    "meet-recordings-api-openapi.yml",
+    "meet-spaces-api-openapi.yml",
+    "meet-transcripts-api-openapi.yml"
+  ],
+  "outputs": [
+    "meet-conference-records-api-openapi.yml",
+    "meet-participants-api-openapi.yml",
+    "meet-recordings-api-openapi.yml",
+    "meet-spaces-api-openapi.yml",
+    "meet-transcripts-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

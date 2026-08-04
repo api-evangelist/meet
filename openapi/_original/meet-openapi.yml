@@ -1,0 +1,494 @@
+openapi: 3.1.0
+info:
+  title: Google Meet REST API
+  version: "v2"
+  description: |
+    Google Meet REST API v2 for creating and managing meeting spaces,
+    retrieving conference records and participants, and accessing recordings
+    and transcripts produced by Google Meet. Authentication uses OAuth 2.0
+    with Google Workspace scopes such as
+    https://www.googleapis.com/auth/meetings.space.created and
+    https://www.googleapis.com/auth/meetings.space.readonly.
+  contact:
+    name: Google Meet API
+    url: https://developers.google.com/workspace/meet/api/guides/overview
+servers:
+  - url: https://meet.googleapis.com
+    description: Google Meet API service endpoint
+security:
+  - oauth2: []
+  - bearerAuth: []
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/meetings.space.created: Create and manage meeting spaces created by the app
+            https://www.googleapis.com/auth/meetings.space.readonly: Read meeting spaces
+            https://www.googleapis.com/auth/meetings.space.settings: Manage meeting space settings
+    bearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    Space:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Resource name in the form spaces/{space}.
+        meetingUri:
+          type: string
+        meetingCode:
+          type: string
+        config:
+          type: object
+          properties:
+            accessType:
+              type: string
+              enum: [ACCESS_TYPE_UNSPECIFIED, OPEN, TRUSTED, RESTRICTED]
+            entryPointAccess:
+              type: string
+              enum: [ENTRY_POINT_ACCESS_UNSPECIFIED, ALL, CREATOR_APP_ONLY]
+        activeConference:
+          type: object
+          properties:
+            conferenceRecord:
+              type: string
+    ConferenceRecord:
+      type: object
+      properties:
+        name:
+          type: string
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+        expireTime:
+          type: string
+          format: date-time
+        space:
+          type: string
+    Participant:
+      type: object
+      properties:
+        name:
+          type: string
+        earliestStartTime:
+          type: string
+          format: date-time
+        latestEndTime:
+          type: string
+          format: date-time
+        signedinUser:
+          type: object
+          properties:
+            user:
+              type: string
+            displayName:
+              type: string
+        anonymousUser:
+          type: object
+        phoneUser:
+          type: object
+    ParticipantSession:
+      type: object
+      properties:
+        name:
+          type: string
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+    Recording:
+      type: object
+      properties:
+        name:
+          type: string
+        driveDestination:
+          type: object
+          properties:
+            file:
+              type: string
+            exportUri:
+              type: string
+        state:
+          type: string
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+    Transcript:
+      type: object
+      properties:
+        name:
+          type: string
+        docsDestination:
+          type: object
+          properties:
+            document:
+              type: string
+            exportUri:
+              type: string
+        state:
+          type: string
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+    TranscriptEntry:
+      type: object
+      properties:
+        name:
+          type: string
+        participant:
+          type: string
+        text:
+          type: string
+        languageCode:
+          type: string
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+paths:
+  /v2/spaces:
+    post:
+      tags: [Spaces]
+      summary: Create a meeting space
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Space" }
+      responses:
+        "200":
+          description: Space created
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Space" }
+  /v2/spaces/{space}:
+    parameters:
+      - in: path
+        name: space
+        required: true
+        schema: { type: string }
+    get:
+      tags: [Spaces]
+      summary: Get a meeting space
+      responses:
+        "200":
+          description: Space
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Space" }
+    patch:
+      tags: [Spaces]
+      summary: Update a meeting space
+      parameters:
+        - in: query
+          name: updateMask
+          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Space" }
+      responses:
+        "200":
+          description: Updated space
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Space" }
+  /v2/spaces/{space}:endActiveConference:
+    post:
+      tags: [Spaces]
+      summary: End the active conference in a space
+      parameters:
+        - in: path
+          name: space
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Active conference ended
+  /v2/conferenceRecords:
+    get:
+      tags: [Conference Records]
+      summary: List conference records
+      parameters:
+        - in: query
+          name: pageSize
+          schema: { type: integer }
+        - in: query
+          name: pageToken
+          schema: { type: string }
+        - in: query
+          name: filter
+          schema: { type: string }
+      responses:
+        "200":
+          description: Conference records page
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  conferenceRecords:
+                    type: array
+                    items: { $ref: "#/components/schemas/ConferenceRecord" }
+                  nextPageToken: { type: string }
+  /v2/conferenceRecords/{conferenceRecord}:
+    get:
+      tags: [Conference Records]
+      summary: Get a conference record
+      parameters:
+        - in: path
+          name: conferenceRecord
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Conference record
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ConferenceRecord" }
+  /v2/conferenceRecords/{conferenceRecord}/participants:
+    get:
+      tags: [Participants]
+      summary: List participants in a conference
+      parameters:
+        - in: path
+          name: conferenceRecord
+          required: true
+          schema: { type: string }
+        - in: query
+          name: pageSize
+          schema: { type: integer }
+        - in: query
+          name: pageToken
+          schema: { type: string }
+        - in: query
+          name: filter
+          schema: { type: string }
+      responses:
+        "200":
+          description: Participants page
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  participants:
+                    type: array
+                    items: { $ref: "#/components/schemas/Participant" }
+                  nextPageToken: { type: string }
+                  totalSize: { type: integer }
+  /v2/conferenceRecords/{conferenceRecord}/participants/{participant}:
+    get:
+      tags: [Participants]
+      summary: Get a participant
+      parameters:
+        - in: path
+          name: conferenceRecord
+          required: true
+          schema: { type: string }
+        - in: path
+          name: participant
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Participant
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Participant" }
+  /v2/conferenceRecords/{conferenceRecord}/participants/{participant}/participantSessions:
+    get:
+      tags: [Participants]
+      summary: List participant sessions
+      parameters:
+        - in: path
+          name: conferenceRecord
+          required: true
+          schema: { type: string }
+        - in: path
+          name: participant
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Participant sessions page
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  participantSessions:
+                    type: array
+                    items: { $ref: "#/components/schemas/ParticipantSession" }
+                  nextPageToken: { type: string }
+  /v2/conferenceRecords/{conferenceRecord}/participants/{participant}/participantSessions/{participantSession}:
+    get:
+      tags: [Participants]
+      summary: Get a participant session
+      parameters:
+        - in: path
+          name: conferenceRecord
+          required: true
+          schema: { type: string }
+        - in: path
+          name: participant
+          required: true
+          schema: { type: string }
+        - in: path
+          name: participantSession
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Participant session
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ParticipantSession" }
+  /v2/conferenceRecords/{conferenceRecord}/recordings:
+    get:
+      tags: [Recordings]
+      summary: List recordings for a conference
+      parameters:
+        - in: path
+          name: conferenceRecord
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Recordings page
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  recordings:
+                    type: array
+                    items: { $ref: "#/components/schemas/Recording" }
+                  nextPageToken: { type: string }
+  /v2/conferenceRecords/{conferenceRecord}/recordings/{recording}:
+    get:
+      tags: [Recordings]
+      summary: Get a recording
+      parameters:
+        - in: path
+          name: conferenceRecord
+          required: true
+          schema: { type: string }
+        - in: path
+          name: recording
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Recording
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Recording" }
+  /v2/conferenceRecords/{conferenceRecord}/transcripts:
+    get:
+      tags: [Transcripts]
+      summary: List transcripts for a conference
+      parameters:
+        - in: path
+          name: conferenceRecord
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Transcripts page
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  transcripts:
+                    type: array
+                    items: { $ref: "#/components/schemas/Transcript" }
+                  nextPageToken: { type: string }
+  /v2/conferenceRecords/{conferenceRecord}/transcripts/{transcript}:
+    get:
+      tags: [Transcripts]
+      summary: Get a transcript
+      parameters:
+        - in: path
+          name: conferenceRecord
+          required: true
+          schema: { type: string }
+        - in: path
+          name: transcript
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Transcript
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Transcript" }
+  /v2/conferenceRecords/{conferenceRecord}/transcripts/{transcript}/entries:
+    get:
+      tags: [Transcripts]
+      summary: List transcript entries
+      parameters:
+        - in: path
+          name: conferenceRecord
+          required: true
+          schema: { type: string }
+        - in: path
+          name: transcript
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Transcript entries page
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  transcriptEntries:
+                    type: array
+                    items: { $ref: "#/components/schemas/TranscriptEntry" }
+                  nextPageToken: { type: string }
+  /v2/conferenceRecords/{conferenceRecord}/transcripts/{transcript}/entries/{entry}:
+    get:
+      tags: [Transcripts]
+      summary: Get a transcript entry
+      parameters:
+        - in: path
+          name: conferenceRecord
+          required: true
+          schema: { type: string }
+        - in: path
+          name: transcript
+          required: true
+          schema: { type: string }
+        - in: path
+          name: entry
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Transcript entry
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/TranscriptEntry" }
