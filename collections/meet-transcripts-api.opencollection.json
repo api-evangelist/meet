@@ -1,0 +1,122 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Meet REST Conference Records Transcripts API",
+    "version": "v2"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/v2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Transcripts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List transcripts for a conference",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://meet.googleapis.com/v2/conferenceRecords/:conferenceRecord/transcripts",
+            "params": [
+              {
+                "name": "conferenceRecord",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List transcripts for a conference"
+        },
+        {
+          "info": {
+            "name": "Get a transcript",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://meet.googleapis.com/v2/conferenceRecords/:conferenceRecord/transcripts/:transcript",
+            "params": [
+              {
+                "name": "conferenceRecord",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "transcript",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a transcript"
+        },
+        {
+          "info": {
+            "name": "List transcript entries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://meet.googleapis.com/v2/conferenceRecords/:conferenceRecord/transcripts/:transcript/entries",
+            "params": [
+              {
+                "name": "conferenceRecord",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "transcript",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List transcript entries"
+        },
+        {
+          "info": {
+            "name": "Get a transcript entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://meet.googleapis.com/v2/conferenceRecords/:conferenceRecord/transcripts/:transcript/entries/:entry",
+            "params": [
+              {
+                "name": "conferenceRecord",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "transcript",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "entry",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a transcript entry"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

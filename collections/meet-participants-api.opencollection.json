@@ -1,0 +1,137 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Meet REST Conference Records Participants API",
+    "version": "v2"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/v2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Participants",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List participants in a conference",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://meet.googleapis.com/v2/conferenceRecords/:conferenceRecord/participants",
+            "params": [
+              {
+                "name": "conferenceRecord",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List participants in a conference"
+        },
+        {
+          "info": {
+            "name": "Get a participant",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://meet.googleapis.com/v2/conferenceRecords/:conferenceRecord/participants/:participant",
+            "params": [
+              {
+                "name": "conferenceRecord",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "participant",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a participant"
+        },
+        {
+          "info": {
+            "name": "List participant sessions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://meet.googleapis.com/v2/conferenceRecords/:conferenceRecord/participants/:participant/participantSessions",
+            "params": [
+              {
+                "name": "conferenceRecord",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "participant",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List participant sessions"
+        },
+        {
+          "info": {
+            "name": "Get a participant session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://meet.googleapis.com/v2/conferenceRecords/:conferenceRecord/participants/:participant/participantSessions/:participantSession",
+            "params": [
+              {
+                "name": "conferenceRecord",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "participant",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "participantSession",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a participant session"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

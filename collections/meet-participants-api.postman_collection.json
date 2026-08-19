@@ -1,0 +1,538 @@
+{
+  "item": [
+    {
+      "id": "274c4a03-ef81-40e9-b53a-3e222feb1580",
+      "name": "Participants",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "95e21ce9-c889-4771-bf52-6266483497b0",
+          "name": "List participants in a conference",
+          "request": {
+            "name": "List participants in a conference",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "conferenceRecords",
+                ":conferenceRecord",
+                "participants"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "conferenceRecord",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f8f81183-137b-42a9-812e-f93555b50c30",
+              "name": "Participants page",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "conferenceRecords",
+                    ":conferenceRecord",
+                    "participants"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "conferenceRecord",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"participants\": [\n    {\n      \"name\": \"string\",\n      \"earliestStartTime\": \"2017-06-10T05:31:07.231Z\",\n      \"latestEndTime\": \"1999-06-26T17:23:39.226Z\",\n      \"signedinUser\": {\n        \"user\": \"string\",\n        \"displayName\": \"string\"\n      },\n      \"anonymousUser\": {},\n      \"phoneUser\": {}\n    },\n    {\n      \"name\": \"string\",\n      \"earliestStartTime\": \"1959-08-24T01:19:11.675Z\",\n      \"latestEndTime\": \"1999-05-15T18:41:13.610Z\",\n      \"signedinUser\": {\n        \"user\": \"string\",\n        \"displayName\": \"string\"\n      },\n      \"anonymousUser\": {},\n      \"phoneUser\": {}\n    }\n  ],\n  \"nextPageToken\": \"string\",\n  \"totalSize\": 8901\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2ce40ff8-1a5e-4ce0-93a2-bdedab043bc4",
+          "name": "Get a participant",
+          "request": {
+            "name": "Get a participant",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "conferenceRecords",
+                ":conferenceRecord",
+                "participants",
+                ":participant"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "conferenceRecord",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "participant",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c8d13d47-5278-41de-965a-edd4e313ef58",
+              "name": "Participant",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "conferenceRecords",
+                    ":conferenceRecord",
+                    "participants",
+                    ":participant"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "conferenceRecord",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "participant",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"earliestStartTime\": \"1965-05-05T04:37:05.618Z\",\n  \"latestEndTime\": \"1950-08-09T01:48:21.265Z\",\n  \"signedinUser\": {\n    \"user\": \"string\",\n    \"displayName\": \"string\"\n  },\n  \"anonymousUser\": {},\n  \"phoneUser\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "92d39700-6df2-4d5d-9177-b44ef8dbff71",
+          "name": "List participant sessions",
+          "request": {
+            "name": "List participant sessions",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "conferenceRecords",
+                ":conferenceRecord",
+                "participants",
+                ":participant",
+                "participantSessions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "conferenceRecord",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "participant",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4dd97bff-d9df-4d1a-9b23-e91f17d824b2",
+              "name": "Participant sessions page",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "conferenceRecords",
+                    ":conferenceRecord",
+                    "participants",
+                    ":participant",
+                    "participantSessions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "conferenceRecord",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "participant",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"participantSessions\": [\n    {\n      \"name\": \"string\",\n      \"startTime\": \"1964-08-22T19:01:53.531Z\",\n      \"endTime\": \"1952-11-01T15:51:45.237Z\"\n    },\n    {\n      \"name\": \"string\",\n      \"startTime\": \"1978-11-18T23:41:37.462Z\",\n      \"endTime\": \"1954-10-01T16:20:48.906Z\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a909bebd-1bc1-4294-986f-231e4933b1c2",
+          "name": "Get a participant session",
+          "request": {
+            "name": "Get a participant session",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "conferenceRecords",
+                ":conferenceRecord",
+                "participants",
+                ":participant",
+                "participantSessions",
+                ":participantSession"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "conferenceRecord",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "participant",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "participantSession",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6537c37c-3ae9-421f-bf13-bc05ec3b079d",
+              "name": "Participant session",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "conferenceRecords",
+                    ":conferenceRecord",
+                    "participants",
+                    ":participant",
+                    "participantSessions",
+                    ":participantSession"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "conferenceRecord",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "participant",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "participantSession",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"startTime\": \"1949-04-25T16:50:16.400Z\",\n  \"endTime\": \"2025-09-11T07:37:38.690Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://meet.googleapis.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/meetings.space.created https://www.googleapis.com/auth/meetings.space.readonly https://www.googleapis.com/auth/meetings.space.settings"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/v2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "88a6137b-3e61-425d-ba2b-af0665276b26",
+    "name": "Google Meet REST Conference Records Participants API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Google Meet REST API v2 for creating and managing meeting spaces,\nretrieving conference records and participants, and accessing recordings\nand transcripts produced by Google Meet. Authentication uses OAuth 2.0\nwith Google Workspace scopes such as\nhttps://www.googleapis.com/auth/meetings.space.created and\nhttps://www.googleapis.com/auth/meetings.space.readonly.\n\n\nContact Support:\n Name: Google Meet API",
+      "type": "text/plain"
+    }
+  }
+}

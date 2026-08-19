@@ -1,0 +1,452 @@
+{
+  "item": [
+    {
+      "id": "3ffe3bd5-edf9-4e2d-884e-56edc9976318",
+      "name": "Spaces",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7eccd9d3-a325-4b40-aaa2-a64908193228",
+          "name": "Create a meeting space",
+          "request": {
+            "name": "Create a meeting space",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "spaces"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"meetingUri\": \"<string>\",\n  \"meetingCode\": \"<string>\",\n  \"config\": {\n    \"accessType\": \"<string>\",\n    \"entryPointAccess\": \"<string>\"\n  },\n  \"activeConference\": {\n    \"conferenceRecord\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e64cfac3-286a-49f5-becd-1f90efdcb370",
+              "name": "Space created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "spaces"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"meetingUri\": \"<string>\",\n  \"meetingCode\": \"<string>\",\n  \"config\": {\n    \"accessType\": \"<string>\",\n    \"entryPointAccess\": \"<string>\"\n  },\n  \"activeConference\": {\n    \"conferenceRecord\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"meetingUri\": \"string\",\n  \"meetingCode\": \"string\",\n  \"config\": {\n    \"accessType\": \"RESTRICTED\",\n    \"entryPointAccess\": \"CREATOR_APP_ONLY\"\n  },\n  \"activeConference\": {\n    \"conferenceRecord\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1fc5582e-a678-41fd-8406-ea40fd71da60",
+          "name": "Get a meeting space",
+          "request": {
+            "name": "Get a meeting space",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "spaces",
+                ":space"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "space",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0a382645-4841-4702-b43d-afc049750d0a",
+              "name": "Space",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "spaces",
+                    ":space"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "space",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"meetingUri\": \"string\",\n  \"meetingCode\": \"string\",\n  \"config\": {\n    \"accessType\": \"RESTRICTED\",\n    \"entryPointAccess\": \"CREATOR_APP_ONLY\"\n  },\n  \"activeConference\": {\n    \"conferenceRecord\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eab664bc-e4c8-40f9-a918-0c468d40e908",
+          "name": "Update a meeting space",
+          "request": {
+            "name": "Update a meeting space",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "spaces",
+                ":space"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "updateMask",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "space",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"meetingUri\": \"<string>\",\n  \"meetingCode\": \"<string>\",\n  \"config\": {\n    \"accessType\": \"<string>\",\n    \"entryPointAccess\": \"<string>\"\n  },\n  \"activeConference\": {\n    \"conferenceRecord\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1338e48e-cb73-4ee2-95ec-89994e753035",
+              "name": "Updated space",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "spaces",
+                    ":space"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "updateMask",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "space",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"meetingUri\": \"<string>\",\n  \"meetingCode\": \"<string>\",\n  \"config\": {\n    \"accessType\": \"<string>\",\n    \"entryPointAccess\": \"<string>\"\n  },\n  \"activeConference\": {\n    \"conferenceRecord\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"meetingUri\": \"string\",\n  \"meetingCode\": \"string\",\n  \"config\": {\n    \"accessType\": \"RESTRICTED\",\n    \"entryPointAccess\": \"CREATOR_APP_ONLY\"\n  },\n  \"activeConference\": {\n    \"conferenceRecord\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f4ad143a-3386-4b90-be9f-00b888be08dd",
+          "name": "End the active conference in a space",
+          "request": {
+            "name": "End the active conference in a space",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "spaces",
+                "{{space}}:endActiveConference"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ba922b7a-0581-43c8-879f-122bfa884a90",
+              "name": "Active conference ended",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "spaces",
+                    "{{space}}:endActiveConference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://meet.googleapis.com",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "space"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/meetings.space.created https://www.googleapis.com/auth/meetings.space.readonly https://www.googleapis.com/auth/meetings.space.settings"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/v2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e28404f6-6a61-4ea9-82fd-2bc2fbe69d10",
+    "name": "Google Meet REST Conference Records Spaces API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Google Meet REST API v2 for creating and managing meeting spaces,\nretrieving conference records and participants, and accessing recordings\nand transcripts produced by Google Meet. Authentication uses OAuth 2.0\nwith Google Workspace scopes such as\nhttps://www.googleapis.com/auth/meetings.space.created and\nhttps://www.googleapis.com/auth/meetings.space.readonly.\n\n\nContact Support:\n Name: Google Meet API",
+      "type": "text/plain"
+    }
+  }
+}

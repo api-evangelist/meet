@@ -1,0 +1,509 @@
+{
+  "item": [
+    {
+      "id": "b7c334aa-8f44-433b-b471-944bccde5786",
+      "name": "Transcripts",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f01b9c92-cd2d-412d-8bc5-44cab5f5f7e4",
+          "name": "List transcripts for a conference",
+          "request": {
+            "name": "List transcripts for a conference",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "conferenceRecords",
+                ":conferenceRecord",
+                "transcripts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "conferenceRecord",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f25a6e89-dde9-40ea-972d-7b26d62b37f0",
+              "name": "Transcripts page",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "conferenceRecords",
+                    ":conferenceRecord",
+                    "transcripts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "conferenceRecord",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"transcripts\": [\n    {\n      \"name\": \"string\",\n      \"docsDestination\": {\n        \"document\": \"string\",\n        \"exportUri\": \"string\"\n      },\n      \"state\": \"string\",\n      \"startTime\": \"2007-10-11T19:42:06.431Z\",\n      \"endTime\": \"1997-06-17T13:59:27.933Z\"\n    },\n    {\n      \"name\": \"string\",\n      \"docsDestination\": {\n        \"document\": \"string\",\n        \"exportUri\": \"string\"\n      },\n      \"state\": \"string\",\n      \"startTime\": \"1948-03-20T23:19:53.417Z\",\n      \"endTime\": \"2025-03-10T12:13:07.715Z\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c61ce6af-2312-4bdc-899f-6bf5f460fb89",
+          "name": "Get a transcript",
+          "request": {
+            "name": "Get a transcript",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "conferenceRecords",
+                ":conferenceRecord",
+                "transcripts",
+                ":transcript"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "conferenceRecord",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "transcript",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ba5b35fa-9cba-4e01-9d28-2e3a8420cdf0",
+              "name": "Transcript",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "conferenceRecords",
+                    ":conferenceRecord",
+                    "transcripts",
+                    ":transcript"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "conferenceRecord",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transcript",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"docsDestination\": {\n    \"document\": \"string\",\n    \"exportUri\": \"string\"\n  },\n  \"state\": \"string\",\n  \"startTime\": \"2021-04-06T13:28:49.205Z\",\n  \"endTime\": \"1978-03-07T02:14:13.307Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "811305c1-f19b-4db7-adea-eee9d6430639",
+          "name": "List transcript entries",
+          "request": {
+            "name": "List transcript entries",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "conferenceRecords",
+                ":conferenceRecord",
+                "transcripts",
+                ":transcript",
+                "entries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "conferenceRecord",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "transcript",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c627edde-61ae-4530-b7ca-8d36f0e416af",
+              "name": "Transcript entries page",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "conferenceRecords",
+                    ":conferenceRecord",
+                    "transcripts",
+                    ":transcript",
+                    "entries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "conferenceRecord",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transcript",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"transcriptEntries\": [\n    {\n      \"name\": \"string\",\n      \"participant\": \"string\",\n      \"text\": \"string\",\n      \"languageCode\": \"string\",\n      \"startTime\": \"2010-06-16T03:29:47.615Z\",\n      \"endTime\": \"1952-08-10T19:49:26.122Z\"\n    },\n    {\n      \"name\": \"string\",\n      \"participant\": \"string\",\n      \"text\": \"string\",\n      \"languageCode\": \"string\",\n      \"startTime\": \"1955-09-12T10:01:00.220Z\",\n      \"endTime\": \"1995-06-06T04:23:52.224Z\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d45f6f84-f5c3-428c-b994-ff3b746597a7",
+          "name": "Get a transcript entry",
+          "request": {
+            "name": "Get a transcript entry",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "conferenceRecords",
+                ":conferenceRecord",
+                "transcripts",
+                ":transcript",
+                "entries",
+                ":entry"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "conferenceRecord",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "transcript",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "entry",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5e4b10ce-4cd8-4f4d-ab32-6ead4eeb7bbf",
+              "name": "Transcript entry",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "conferenceRecords",
+                    ":conferenceRecord",
+                    "transcripts",
+                    ":transcript",
+                    "entries",
+                    ":entry"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "conferenceRecord",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transcript",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entry",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"participant\": \"string\",\n  \"text\": \"string\",\n  \"languageCode\": \"string\",\n  \"startTime\": \"1988-09-13T16:20:53.758Z\",\n  \"endTime\": \"2016-11-15T19:21:35.401Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://meet.googleapis.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/meetings.space.created https://www.googleapis.com/auth/meetings.space.readonly https://www.googleapis.com/auth/meetings.space.settings"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/v2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1f48538a-f916-48bd-8bbc-425f93825339",
+    "name": "Google Meet REST Conference Records Transcripts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Google Meet REST API v2 for creating and managing meeting spaces,\nretrieving conference records and participants, and accessing recordings\nand transcripts produced by Google Meet. Authentication uses OAuth 2.0\nwith Google Workspace scopes such as\nhttps://www.googleapis.com/auth/meetings.space.created and\nhttps://www.googleapis.com/auth/meetings.space.readonly.\n\n\nContact Support:\n Name: Google Meet API",
+      "type": "text/plain"
+    }
+  }
+}

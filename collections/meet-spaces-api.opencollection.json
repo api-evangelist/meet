@@ -1,0 +1,108 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Meet REST Conference Records Spaces API",
+    "version": "v2"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/v2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Spaces",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a meeting space",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://meet.googleapis.com/v2/spaces",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a meeting space"
+        },
+        {
+          "info": {
+            "name": "Get a meeting space",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://meet.googleapis.com/v2/spaces/:space",
+            "params": [
+              {
+                "name": "space",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a meeting space"
+        },
+        {
+          "info": {
+            "name": "Update a meeting space",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://meet.googleapis.com/v2/spaces/:space",
+            "params": [
+              {
+                "name": "space",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "updateMask",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a meeting space"
+        },
+        {
+          "info": {
+            "name": "End the active conference in a space",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://meet.googleapis.com/v2/spaces/:space:endActiveConference",
+            "params": [
+              {
+                "name": "space",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "End the active conference in a space"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,263 @@
+{
+  "item": [
+    {
+      "id": "8fc8df27-81eb-4027-9d4a-98accb7a5135",
+      "name": "Recordings",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4275760f-fa36-4cfc-8c84-66e8ac18f9fe",
+          "name": "List recordings for a conference",
+          "request": {
+            "name": "List recordings for a conference",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "conferenceRecords",
+                ":conferenceRecord",
+                "recordings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "conferenceRecord",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c3b96035-fea1-4c09-911d-15d89c113d62",
+              "name": "Recordings page",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "conferenceRecords",
+                    ":conferenceRecord",
+                    "recordings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "conferenceRecord",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"recordings\": [\n    {\n      \"name\": \"string\",\n      \"driveDestination\": {\n        \"file\": \"string\",\n        \"exportUri\": \"string\"\n      },\n      \"state\": \"string\",\n      \"startTime\": \"1946-11-23T01:31:14.039Z\",\n      \"endTime\": \"1992-03-17T12:36:40.841Z\"\n    },\n    {\n      \"name\": \"string\",\n      \"driveDestination\": {\n        \"file\": \"string\",\n        \"exportUri\": \"string\"\n      },\n      \"state\": \"string\",\n      \"startTime\": \"2003-05-27T08:04:32.941Z\",\n      \"endTime\": \"1951-01-23T11:08:44.604Z\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9ac10967-939e-4b07-aa06-578fd80931f8",
+          "name": "Get a recording",
+          "request": {
+            "name": "Get a recording",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "conferenceRecords",
+                ":conferenceRecord",
+                "recordings",
+                ":recording"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "conferenceRecord",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "recording",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7ec83d4f-d1c1-44ad-b939-590e13a1cf43",
+              "name": "Recording",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "conferenceRecords",
+                    ":conferenceRecord",
+                    "recordings",
+                    ":recording"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "conferenceRecord",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "recording",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"driveDestination\": {\n    \"file\": \"string\",\n    \"exportUri\": \"string\"\n  },\n  \"state\": \"string\",\n  \"startTime\": \"2023-08-13T00:04:30.081Z\",\n  \"endTime\": \"1981-01-28T02:08:06.099Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://meet.googleapis.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/meetings.space.created https://www.googleapis.com/auth/meetings.space.readonly https://www.googleapis.com/auth/meetings.space.settings"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/v2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f143f50c-62d0-48b4-9e47-1665aba01a35",
+    "name": "Google Meet REST Conference Records Recordings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Google Meet REST API v2 for creating and managing meeting spaces,\nretrieving conference records and participants, and accessing recordings\nand transcripts produced by Google Meet. Authentication uses OAuth 2.0\nwith Google Workspace scopes such as\nhttps://www.googleapis.com/auth/meetings.space.created and\nhttps://www.googleapis.com/auth/meetings.space.readonly.\n\n\nContact Support:\n Name: Google Meet API",
+      "type": "text/plain"
+    }
+  }
+}
