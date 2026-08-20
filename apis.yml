@@ -24,6 +24,14 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/meet.png
 tags:
   - Video Conferencing
   - Meetings
+  - Communications
+  - Collaboration
+  - Google Workspace
+  - Recordings
+  - Transcripts
+tags_raw:
+  - Video Conferencing
+  - Meetings
   - Communication
   - Collaboration
   - Google Workspace
