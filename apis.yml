@@ -39,7 +39,7 @@ tags:
   - Communications
   - Collaboration
   - Google Workspace
-  - Recordings
+  - Recording
   - Transcripts
 tags_raw:
   - Video Conferencing
@@ -92,6 +92,8 @@ apis:
   humanURL: https://developers.google.com/workspace/meet/api/guides/overview
   baseURL: https://meet.googleapis.com/v2
   tags:
+  - Recording
+  tags_raw:
   - Recordings
   properties:
   - type: OpenAPI
@@ -108,6 +110,8 @@ apis:
   humanURL: https://developers.google.com/workspace/meet/api/guides/overview
   baseURL: https://meet.googleapis.com/v2
   tags:
+  - Space
+  tags_raw:
   - Spaces
   properties:
   - type: OpenAPI
