@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Google Meet REST Conference Records Transcripts API
+  title: Google Meet REST Transcripts API
   version: v2
   description: 'Google Meet REST API v2 for creating and managing meeting spaces,
 
@@ -12,9 +12,7 @@ info:
 
     https://www.googleapis.com/auth/meetings.space.created and
 
-    https://www.googleapis.com/auth/meetings.space.readonly.
-
-    '
+    https://www.googleapis.com/auth/meetings.space.readonly.'
   contact:
     name: Google Meet API
     url: https://developers.google.com/workspace/meet/api/guides/overview
@@ -52,6 +50,8 @@ paths:
                       $ref: '#/components/schemas/Transcript'
                   nextPageToken:
                     type: string
+      operationId: getV2ConferenceRecordsByConferenceRecordTranscripts
+      x-operation-id-source: derived
   /v2/conferenceRecords/{conferenceRecord}/transcripts/{transcript}:
     get:
       tags:
@@ -75,6 +75,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Transcript'
+      operationId: getV2ConferenceRecordsByConferenceRecordTranscriptsByTranscript
+      x-operation-id-source: derived
   /v2/conferenceRecords/{conferenceRecord}/transcripts/{transcript}/entries:
     get:
       tags:
@@ -105,6 +107,8 @@ paths:
                       $ref: '#/components/schemas/TranscriptEntry'
                   nextPageToken:
                     type: string
+      operationId: getV2ConferenceRecordsByConferenceRecordTranscriptsByTranscriptEntries
+      x-operation-id-source: derived
   /v2/conferenceRecords/{conferenceRecord}/transcripts/{transcript}/entries/{entry}:
     get:
       tags:
@@ -133,6 +137,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TranscriptEntry'
+      operationId: getV2ConferenceRecordsByConferenceRecordTranscriptsByTranscriptEntriesByEntry
+      x-operation-id-source: derived
 components:
   schemas:
     Transcript:
