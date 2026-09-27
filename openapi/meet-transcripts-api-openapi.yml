@@ -141,6 +141,23 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    TranscriptEntry:
+      type: object
+      properties:
+        name:
+          type: string
+        participant:
+          type: string
+        text:
+          type: string
+        languageCode:
+          type: string
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
     Transcript:
       type: object
       properties:
@@ -154,23 +171,6 @@ components:
             exportUri:
               type: string
         state:
-          type: string
-        startTime:
-          type: string
-          format: date-time
-        endTime:
-          type: string
-          format: date-time
-    TranscriptEntry:
-      type: object
-      properties:
-        name:
-          type: string
-        participant:
-          type: string
-        text:
-          type: string
-        languageCode:
           type: string
         startTime:
           type: string

@@ -110,9 +110,11 @@ apis:
   humanURL: https://developers.google.com/workspace/meet/api/guides/overview
   baseURL: https://meet.googleapis.com/v2
   tags:
+  - Spaces
   - Space
   tags_raw:
   - Spaces
+  - Space
   properties:
   - type: OpenAPI
     url: openapi/meet-spaces-api-openapi.yml
