@@ -155,17 +155,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ParticipantSession:
-      type: object
-      properties:
-        name:
-          type: string
-        startTime:
-          type: string
-          format: date-time
-        endTime:
-          type: string
-          format: date-time
     Participant:
       type: object
       properties:
@@ -188,6 +177,17 @@ components:
           type: object
         phoneUser:
           type: object
+    ParticipantSession:
+      type: object
+      properties:
+        name:
+          type: string
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
   securitySchemes:
     oauth2:
       type: oauth2
